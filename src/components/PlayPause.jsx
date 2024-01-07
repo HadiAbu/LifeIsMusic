@@ -10,15 +10,14 @@ const PlayPause = ({
   isPlaying && activeSong?.title === song?.title ? (
     <FaPauseCircle
       size={35}
-      handlePauseClick={handlePlayClick}
       className="text-gray-300"
-      handleClick={handlePauseClick}
+      onClick={handlePauseClick}
     />
   ) : (
     <FaPlayCircle
       size={35}
-      className="bg-gray-300"
-      handleClick={handlePauseClick}
+      className="text-gray-300"
+      onClick={handlePlayClick}
     />
   );
 export default PlayPause;

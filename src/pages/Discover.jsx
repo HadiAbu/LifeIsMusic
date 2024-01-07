@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { Error, Loader, SongCard } from '../components';
 import { genres } from '../assets/constants';
@@ -7,7 +7,6 @@ import { data } from '../assets/dummyData';
 
 const Discover = () => {
   // const { data, isFetching, error } = useGetTopChartsQuery();
-  const { dispatch } = useDispatch();
   const { isPlaying, activeSong } = useSelector((state) => state.player);
 
   const isFetching = false;

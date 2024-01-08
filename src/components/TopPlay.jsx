@@ -78,7 +78,7 @@ const TopPlay = () => {
       <div className="w-full flex flex-col">
         {/* top charts */}
         <div className="flex flex-row justify-between items-center">
-          <h2 className="font-bold primary-text-color">Top Charts</h2>
+          <h2 className="font-bold  text-2xl primary-text-color">Top Charts</h2>
           <Link to="/top-charts" className="secondary-text-color">
             <p>see more</p>
           </Link>
@@ -100,7 +100,9 @@ const TopPlay = () => {
         {/* top artists */}
         <div className="w-full flex flex-col mt-8">
           <div className="flex flex-row justify-between items-center">
-            <h2 className="font-bold primary-text-color">Top Artists</h2>
+            <h2 className="font-bold text-2xl primary-text-color">
+              Top Artists
+            </h2>
             <Link to="/top-artists" className="secondary-text-color">
               <p>see more</p>
             </Link>

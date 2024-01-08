@@ -4,16 +4,19 @@
 
 /* Active Navigation Link */
 .active {
-  @apply text-cyan-500;
+  @apply text-cyan-500 opacity-100;
 }
 .active svg {
-  @apply text-cyan-500;
+  @apply text-cyan-500 opacity-100;
 }
 .primary-text-color {
   @apply text-white opacity-80;
 }
 .secondary-text-color {
   @apply text-white opacity-40;
+}
+a:hover {
+  @apply text-cyan-500 opacity-100;
 }
 
 .bar:nth-child(2) {

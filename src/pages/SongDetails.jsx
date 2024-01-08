@@ -15,7 +15,7 @@ const SongDetails = () => {
     <div className="flex flex-col ">
       <DetailsHeader artistId={''} songData={songData} />
       <div className="my-10">
-        <h1 className="font-bold text-2xl primary-text-color">Lyrics:</h1>
+        <h1 className="font-bold text-2xl primary-text-color">Lyrics</h1>
         <div className="mt-5">
           {songData?.sections[1].type === 'LYRICS' ? (
             songData?.sections[1]?.text.map((line, i) => (

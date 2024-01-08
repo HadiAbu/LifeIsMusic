@@ -6,9 +6,14 @@
 .active {
   @apply text-cyan-500;
 }
-
 .active svg {
   @apply text-cyan-500;
+}
+.primary-text-color {
+  @apply text-white opacity-80;
+}
+.secondary-text-color {
+  @apply text-white opacity-40;
 }
 
 .bar:nth-child(2) {

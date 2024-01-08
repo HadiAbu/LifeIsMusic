@@ -41,12 +41,12 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
         />
       </div>
       <div className="mt-2 flex flex-col">
-        <p className="font-semibold text-white opacity-80 text-lg truncate">
+        <p className="font-semibold primary-text-color text-lg truncate">
           <Link title={song.title} to={`/songs/${song?.key}`}>
             {song.title}
           </Link>
         </p>
-        <p className="font-thin text-white opacity-40 text-lg truncate">
+        <p className="font-thin secondary-text-color text-lg truncate">
           <Link
             data-te-toggle="tooltip"
             title={song.subtitle}

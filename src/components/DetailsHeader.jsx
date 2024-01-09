@@ -1,8 +1,13 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable indent */
 import { Link } from 'react-router-dom';
 
 const DetailsHeader = ({ artistId, artistData, songData }) => {
-  const artist = artistData?.artists[artistId]?.attributes;
-  console.log(artistData);
+  const artist =
+    artistId && artistData?.attributes
+      ? artistData?.attributes
+      : artistData?.artists[artistId]?.attributes;
+
   return (
     <div className="relative w-full flex flex-col mt-5">
       <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28">
@@ -20,7 +25,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
           />
           <div className="ml-5">
             <p className="font-bold sm:text-3xl text-xl text-white">
-              {artistId ? artistData?.attributes?.name : songData?.title}
+              {artistId ? artist?.name : songData?.title}
             </p>
             {!artistId && (
               <Link to={`/artists/${songData?.artists[0]?.adamid}`}>
@@ -31,9 +36,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
             )}
 
             <p className="text-base text-gray-400 mt-2">
-              {artistId
-                ? artistData?.attributes?.genreNames[0]
-                : songData?.genres?.primary}
+              {artistId ? artist?.genreNames[0] : songData?.genres?.primary}
             </p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
@@ -9,7 +9,7 @@ import { relatedData } from '../assets/dummyRelated';
 const SongDetails = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { songid } = useParams();
+  // const { songid } = useParams();
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -31,7 +31,7 @@ const SongDetails = () => {
   const songData = data;
   return (
     <div className="flex flex-col ">
-      <DetailsHeader artistId={''} songData={songData} />
+      <DetailsHeader artistId="" songData={songData} />
       <div className="my-10">
         <h1 className="font-bold text-2xl primary-text-color">Lyrics</h1>
         <div className="mt-5">

@@ -1,3 +1,4 @@
+/* eslint-disable no-confusing-arrow */
 import { FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
 
 const PlayPause = ({

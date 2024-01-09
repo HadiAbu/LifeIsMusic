@@ -1,9 +1,15 @@
+import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Searchbar = () => {
-  const { search, setSearch } = useState('');
-  const handleSubmit = () => {};
+  const [search, setSearch] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search/${search}`);
+  };
   return (
     <form
       onSubmit={handleSubmit}
@@ -18,11 +24,12 @@ const Searchbar = () => {
         <input
           className="flex-1 bg-transparent border-none placeholder-gray-500 outline-none text-base primary-text-color p-4"
           id="search-field"
+          name="search-field"
           autoComplete="off"
           placeholder="Search song.."
           type="search"
           value={search}
-          onChange={setSearch}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
     </form>

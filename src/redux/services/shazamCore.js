@@ -21,7 +21,7 @@ export const shazamCoreApi = createApi({
       query: (artistid) => `/v2/artists/details?artist_id=${artistid}`,
     }),
     getSongsByCountry: builder.query({
-      query: () => ``,
+      query: (countryCode) => `/v1/charts/country/country_code=${countryCode}`,
     }),
   }),
 });

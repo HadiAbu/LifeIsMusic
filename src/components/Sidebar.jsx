@@ -1,35 +1,26 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  HiOutlineHashtag,
-  HiOutlineHome,
-  HiOutlineMenu,
-  HiOutlinePhotograph,
-  HiOutlineUserGroup,
-} from 'react-icons/hi';
+import { HiOutlineMenu } from 'react-icons/hi';
 import { RiCloseLine } from 'react-icons/ri';
 import { logo } from '../assets';
 import { links } from '../assets/constants';
 
-const NavLinks = ({ handleClick }) => {
-  return (
-    <div className="flex flex-col mt-10">
-      {links.map((link) => (
-        <NavLink
-          key={link.name}
-          to={link.to}
-          className={
-            'flex justify-start items-center m-3 font-semibold hover:text-cyan-200 text-white opacity-40'
-          }
-          onClick={() => handleClick && handleClick()}
-        >
-          <link.icon className="w-6 h-6 mr-2" />
-          {link.name}
-        </NavLink>
-      ))}
-    </div>
-  );
-};
+const NavLinks = ({ handleClick }) => (
+  <div className="flex flex-col mt-10">
+    {links.map((link) => (
+      <NavLink
+        end
+        key={link.name}
+        to={link.to}
+        className="flex justify-start items-center m-3 font-semibold hover:text-cyan-200 text-white opacity-40 "
+        onClick={() => handleClick && handleClick()}
+      >
+        <link.icon className="w-6 h-6 mr-2" />
+        {link.name}
+      </NavLink>
+    ))}
+  </div>
+);
 
 const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -1,15 +1,13 @@
-import { useSelector } from 'react-redux';
-import { ArtistCard, Error, Loader, SongCard } from '../components';
-// import { useGetTopChartsQuery } from '../redux/services/shazamCore';
-import { data } from '../assets/dummyData';
+import { ArtistCard, Error, Loader } from '../components';
+import { useGetTopChartsQuery } from '../redux/services/shazamCore';
+// import { data } from '../assets/dummyData';
 
 const TopArtists = () => {
-  const { isPlaying, activeSong } = useSelector((state) => state.player);
-  //   const { data, isFetching, error } = useGetTopChartsQuery();
+  const { data, isFetching, error } = useGetTopChartsQuery();
 
-  //   if (/*isFetching ||*/ loading) return <Loader title="Loading songs..." />;
+  if (isFetching) return <Loader title="Loading songs..." />;
 
-  //   if (error) return <Error />;
+  if (error) return <Error />;
 
   return (
     <div className="flex flex-col">

@@ -1,14 +1,14 @@
 import { ArtistCard, Error, Loader } from '../components';
-// import { useGetTopChartsQuery } from '../redux/services/shazamCore';
-import { data } from '../assets/dummyData';
+import { useGetTopChartsQuery } from '../redux/services/shazamCore';
+// import { data } from '../assets/dummyData';
 
 // eslint-disable-next-line arrow-body-style
 const TopCharts = () => {
-  //   const { data, isFetching, error } = useGetTopChartsQuery();
+  const { data, isFetching, error } = useGetTopChartsQuery();
 
-  //   if (/*isFetching ||*/ loading) return <Loader title="Loading songs..." />;
+  if (isFetching) return <Loader title="Loading songs..." />;
 
-  //   if (error) return <Error />;
+  if (error) return <Error />;
 
   return (
     <div className="flex flex-col">

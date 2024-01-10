@@ -9,11 +9,7 @@ const CountryTracks = () => {
   const [country, setCountry] = useState('US');
   const [loading, setLoading] = useState(false);
   const { isPlaying, activeSong } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetSongsByCountryQuery();
-
-  if (isFetching || loading) return <Loader title="Loading songs..." />;
-
-  if (error) return <Error />;
+  const { data, isFetching, error } = useGetSongsByCountryQuery(country);
 
   useEffect(() => {
     setLoading(true);
@@ -21,17 +17,18 @@ const CountryTracks = () => {
       .get(
         `https://geo.ipify.org/api/v2/country?apiKey=${
           import.meta.env.VITE_GEO_API_KEY
-        }&ipAddress=8.8.8.8`
+        }`
       )
-      .then((result) => {
-        setCountry(result?.data?.location?.country);
-      })
-      .catch((e) => {
-        console.error(e);
-      })
-      .finally(setLoading(false));
+      .then((res) => setCountry(res?.data?.location.country))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, [country]);
+  if (isFetching || loading) return <Loader title="Loading songs..." />;
 
+  if (error && country !== '')
+    return (
+      <Error message="Some countries codes might not be listed on the api" />
+    );
   return (
     <div className="flex flex-col">
       <h1 className="font-bold text-2xl primary-text-color mt-4 mb-6">

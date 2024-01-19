@@ -27,7 +27,7 @@ const CountryTracks = () => {
 
   if (error && country !== '')
     return (
-      <Error message="Some countries codes might not be listed on the api" />
+      <Error message="Some country codes might not be listed in the api.." />
     );
   return (
     <div className="flex flex-col">
